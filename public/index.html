@@ -8,11 +8,6 @@
 </head>
 <body>
 
-    <form method="POST" action="/upload_takeout" enctype="multipart/form-data">
-        <input type="file" name="takeout" accept=".json">
-        <input type="submit" value="Submit">
-    </form>   
-
     <div id="headline">
         <ul>
             <li>COVID -</li>
@@ -21,14 +16,30 @@
         </ul>
     </div>
 
-    <div id="background">
-        <img src="images/LandingPage.jpg"/>
-    </div>
-
     <section id="Buttons">
-        <a href="#">Upload von deinem Tracking</a> <br>
-        <a href="#">Infos zu COVID-19</a> <br>
-        <a href="#">Tracking Map</a>
+        <ul id="upload">
+            <li><div id="uploadPic"><img src="images/upload_2.png"/></div></li>
+            <li><a class="text" href="UploadPage.html">Upload von deinem Tracking</a> <br></li>
+        </ul>
+
+        <ul id="info">
+            <li><div id="infoPic"><img src="images/information_2.png" height="30px"></div></li>
+            <li><a class="text" href="#">Infos zu COVID-19</a> <br></li>
+        </ul>
+
+        <ul id="world">
+            <li><div id="worldPic"><img src="images/world_2.png" height="30px"></div></li>
+            <li><a class="text" href="#">Tracking Map</a></li>
+        </ul>
     </section>
+
+    <footer>
+        <p id="hackathon">Hackathon 2020 #wirvsvirus</p>
+    </footer>
+
+
+    <div id="background">
+        <img src="images/LandingPage.jpg" height="1077" width="1920"/>
+    </div>
 </body>
 </html>

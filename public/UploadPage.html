@@ -18,11 +18,11 @@
     <div class="card">
         <img src="images/pinpoint.png">
         <div class="card-body">
-            <form method="POST" action="/upload_takeout" class="was-validated">
+            <form method="POST" action="/upload_takeout" enctype="multipart/form-data" class="was-validated">
                 <div class="custom-file" id="jsonInput_Card">
                     <input type="file" class="custom-file-input" name="takeout" id="jsonInput" accept=".json" required>
                     <label class="custom-file-label" for="jsonInput">Datei auswählen...</label>
-                    <div class="invalid-feedback" id="jsonInput_feedback">Lade deine Tracking Datei hoch.</div>
+                    <div class="invalid-feedback" id="jsonInput_feedxback">Lade deine Tracking Datei hoch.</div>
                 </div>
                 <div class="custom-control custom-radio" id="radio">
                     <input type="radio" class="custom-control-input" id="checkBox" name="radio-stacked" required>

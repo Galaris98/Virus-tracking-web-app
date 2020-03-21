@@ -3,6 +3,19 @@
     margin: 0;
     padding: 0;
 }
+@font-face {
+    font-family: RobotoMedium;
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: RobotoBlack;
+    src: url("../fonts/Roboto-Black.ttf");
+}
+@font-face {
+    font-family: RobotoBold;
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
 body{
     background-color: rgb(0, 1, 22);
 }
@@ -35,10 +48,69 @@ body{
 #background{
     position: absolute;
     width: 100%;
-
     z-index: 0;
 }
 #background > img{
     width: 100%;
+    height: 48.5vw;
 }
 
+/*========================================= Buttons =========================================*/
+
+#Buttons{
+    position: absolute;
+    left: 95%;
+    top: 55%;
+    width: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    z-index: 10;
+    transition: 2s ease-in-out;
+}
+
+#Buttons > ul > li > a {
+    font-family: RobotoBlack;
+    font-size: 2.5vw;
+    text-shadow: 0 0 1vw rgba(234, 210, 111, 0.4);
+    text-decoration: none;
+    color: #ead26f;
+    transition: ease 0.5s;
+}
+#Buttons > ul > li > div > img{
+    height: 30px;
+    transition: ease 0.5s;
+}
+#Buttons > ul > li{
+    display: inline-block;
+    padding: 1.5vw;
+}
+#Buttons > ul > li > div{
+    transition: ease 0.1s;
+}
+
+/*Hover states*/
+
+#Buttons > ul:hover img{
+    -webkit-filter: drop-shadow(0px 0px 5px #ead26f);
+    filter: drop-shadow(0px 0px 5px #ead26f);
+}
+#Buttons > ul:hover .text{
+    text-shadow: 0 0 1vw rgba(234, 210, 111, 0.8);
+}
+#Buttons:hover{
+    left: 58%;
+    width: 41%;
+}
+
+/*========================================= Buttons =========================================*/
+
+#hackathon{
+    position: absolute;
+    z-index: 2;
+    top: 97.5%;
+    left: 5%;
+    font-family: RobotoBlack;
+    font-size: 0.8vw;
+    color: rgba(234, 210, 110, 0.4);
+}
