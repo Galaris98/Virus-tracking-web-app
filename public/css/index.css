@@ -62,11 +62,12 @@ body{
     left: 95%;
     top: 55%;
     width: 5%;
+    height: 20vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
     z-index: 10;
-    transition: 2s ease-in-out;
+    transition: 1s ease-in-out;
 }
 
 #Buttons > ul > li > a {
@@ -103,7 +104,28 @@ body{
     width: 41%;
 }
 
-/*========================================= Buttons =========================================*/
+/*Untertitel zu den Buttons*/
+
+.infoText{
+    font-family: RobotoBlack;
+    color: #ead26f;
+    font-size: 1vw;
+    position: absolute;
+    margin-top: 2vw;
+}
+
+#infoTextUpload{
+    margin-left: -34vw;
+}
+#infoTextInfo{
+    margin-left: -23vw;
+}
+#infoTextWorld{
+    margin-left: -17.6vw;
+}
+
+
+/*========================================= Footer =========================================*/
 
 #hackathon{
     position: absolute;
