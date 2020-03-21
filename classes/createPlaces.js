@@ -5,7 +5,6 @@ class createPlaces {
     constructor(takeout) {
         this.places = [];
         this.id = this.makeid(5);
-
         //check for places visited
         this.checkPlaces(takeout);
 

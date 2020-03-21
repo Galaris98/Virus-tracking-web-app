@@ -4,8 +4,17 @@ const fs = require('fs');
 
 class ConvertPlacesToKML {
     
-    constructor(places) {
-        this.createKMLFile(places);
+    constructor() {
+        fs.readFile('./data/placesJSON.json' , (err, data) => {
+            //Wenn Fehler dann erstelle neue Datei mit aktuellen daten:
+            if (err) {
+                console.log (' loged ' + err)
+                return;
+            }
+            var placesArray = JSON.parse(data);
+            this.createKMLFile(placesArray)
+        });
+
     }
 
     createKMLFile(places){
