@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-
 const fs = require('fs')
 
 const createPlaces = require('./classes/createPlaces');
@@ -11,14 +10,15 @@ app.listen(PORT, () => console.log("Server Listening on " + PORT))
 
 app.use(express.static('public'));
 
-fs.readFileSync('./myTakeout/2020_M_C.json', (err, data) => {
+(async =>
+fs.readFile('./myTakeout/2020_M_C.json', (err, data) => {
     if (err) {
         console.log(err)
         return
     } 
     timeLineData = JSON.parse(data);
     console.log(JSON.parse(data))
+})).then(() => {
+    new createPlaces(timeLineData);
 })
 
-console.log(timeLineData)
-new createPlaces(timeLineData);
