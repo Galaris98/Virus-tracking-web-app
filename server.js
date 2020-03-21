@@ -2,8 +2,6 @@ var express = require('express');
 var app = express();
 const fs = require('fs')
 
-var timeLineData;
-
 const PORT = process.env.PORT || 80;
 app.listen(PORT, () => console.log("Server Listening on " + PORT))
 
