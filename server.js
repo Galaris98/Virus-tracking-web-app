@@ -10,15 +10,18 @@ app.listen(PORT, () => console.log("Server Listening on " + PORT))
 
 app.use(express.static('public'));
 
-(async =>
-fs.readFile('./myTakeout/2020_M_C.json', (err, data) => {
-    if (err) {
-        console.log(err)
-        return
-    } 
-    timeLineData = JSON.parse(data);
-    console.log(JSON.parse(data))
-})).then(() => {
-    new createPlaces(timeLineData);
-})
+app.use(require('./api'))
+
+
+//Testing Filereading and json parsing: ----------------------------------------------------------------------------------------------------
+if (true) {
+    fs.readFile('./myTakeout/2020_M_C.json', (err, data) => {
+        if (err) {
+            console.log(err)
+            return
+        } 
+        
+        new createPlaces(JSON.parse(data));
+    })
+}
 

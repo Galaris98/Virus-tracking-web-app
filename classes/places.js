@@ -1,16 +1,22 @@
 class Place {
 
-    publicPlaces = ["IN_TRAM", "IN_TRAIN" , "IN_BUS" , "IN_FERRY" , "IN_SUBWAY"]; 
+    
 
-    constructor(lat, long, timest, transport) {
+    constructor(lat, long, timestStart,timestEnd , transport) {
+        this.publicPlaces = ["IN_TRAM", "IN_TRAIN" , "IN_BUS" , "IN_FERRY" , "IN_SUBWAY"];
+        //location
         this.lat = lat;
         this.long = long;
-        this.timest = timest;
+        //duration
+        this.timestStart = timestStart;
+        this.timestEnd = timestEnd;
+
+        this.publicTransport = false;
 
         if (transport && isPublic(transport)) this.publicTransport = true;
     }
 
-    isPublic = transport => {
+    isPublic(transport) {
         publicPlaces.forEach(element => {
             if (transport === element) return true;
         });
