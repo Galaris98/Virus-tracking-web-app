@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(0, 1, 22);
+}
+
+
+#headline ul{
+    position: absolute;
+    display: inline;
+    font-family: "Agency FB";
+    letter-spacing: 0.5vw;
+    font-size: 5vw;
+    font-weight: bold;
+
+    padding-top: 17vw;
+    padding-left: 7vw;
+
+    z-index: 1;
+}
+#headline ul li{
+    display: inline-block;
+    margin: 0vw;
+
+    color: #ead26f;
+    text-shadow: 0 0 1vw rgba(234, 210, 111, 0.8);
+}
+
+#background{
+    position: absolute;
+    width: 100%;
+
+    z-index: 0;
+}
+
+#background > img{
+    width: 100%;
+}
