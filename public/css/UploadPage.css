@@ -27,6 +27,7 @@ h1{
     width: 50%;
     height: 27vw;
 
+    background-color: #b3d3f9;
     box-shadow:20px 20px 10px rgba(20, 20, 20, 0.4);
 
     z-index: 2;
@@ -60,8 +61,6 @@ h1{
     margin-left: 19.6vw;
     font-size: 1.6vw;
 }
-
-
 
 /*========================================= Background =========================================*/
 
