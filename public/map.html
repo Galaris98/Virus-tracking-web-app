@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="./css/map.css">
+    <script src="./L.KML.js"></script>
+    
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/"></script>
+
+</head>
+<body>
+
+
+
+    <div id="mapid"></div>
+
+    <script>
+
+
+
+        var mymap = L.map('mapid').setView([54.323292, 10.122765], 13);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2hyYXVzZW4iLCJhIjoiY2s4Mjc4NmcxMGQ2MjNscHR3aXRneWJuYSJ9.3iXyE1IalmBHqLZ8ZibX1w', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'your.mapbox.access.token'
+        }).addTo(mymap);
+
+        // Load kml file
+        fetch('./KML/placesKML.kml')
+                .then(res => res.text())
+                .then(kmltext => {
+                    // Create new kml overlay
+                    const parser = new DOMParser();
+                    const kml = parser.parseFromString(kmltext, 'text/xml');
+                    const track = new L.KML(kml);
+                    
+                    mymap.addLayer(track);
+                    // Adjust map to show the kml
+
+
+                });
+    </script>
+
+  
+
+</body>
+</html>

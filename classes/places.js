@@ -1,7 +1,4 @@
 class Place {
-
-    
-
     constructor(lat, long, timestStart,timestEnd , transport) {
         this.publicPlaces = ["IN_TRAM", "IN_TRAIN" , "IN_BUS" , "IN_FERRY" , "IN_SUBWAY"];
         //location
@@ -22,6 +19,16 @@ class Place {
         });
         return false;
     }
+
+    toJSON = function() {
+        return {
+            lat: this.lat,
+            long: this.long,
+            timestStart: this.timestStart,
+            timestEnd: this.timestEnd
+
+        };
+    };
 
 }
 

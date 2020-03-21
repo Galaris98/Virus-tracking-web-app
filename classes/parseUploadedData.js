@@ -12,8 +12,45 @@ class ParseUploadedData {
                 console.log(err)
                 return
             } 
-            var tempPlaces = [new createPlaces(JSON.parse(data))];
-            var converter = new ConvertPlacesToKML(tempPlaces)
+            
+            var tempPlaces = new createPlaces(JSON.parse(data));
+
+            //_----------------------------------------------------------
+
+
+            fs.readFile('./data/placesJSON.json' , (err, data) => {
+                //Wenn Fehler dann erstelle neue Datei mit aktuellen daten:
+                if (err) {
+                    console.log('Verzeichnis nicht gefunden, erstelle neue Datei für places');
+                    
+                    fs.writeFile('./data/placesJSON.json', JSON.stringify([tempPlaces]), (err) => {
+                        if (err) throw err;
+                        console.log("The file was succesfully saved!");
+                        var converter = new ConvertPlacesToKML()
+
+                    });
+                    return;
+                }
+
+
+                //MUSS DATA NEUES ELEMENT PUSHEN
+                //console.log(JSON.parse(data)[0].places)
+                var oldData = JSON.parse(data)
+
+                oldData.push(tempPlaces);
+
+                fs.writeFile('./data/placesJSON.json', JSON.stringify(oldData), (err) => {
+                    if (err) throw err;
+                    console.log("The file was succesfully updated");
+                    var converter = new ConvertPlacesToKML()
+                });
+
+            });
+
+
+            //_----------------------------------------------------------
+
+           
             
             //After creating places Delete file
             fs.unlink('./uploads/' + filename, err => {

@@ -1,2 +1,5 @@
 myTakeout
 node_modules
+data/placesJSON.json
+public/KML/placesKML.kml
+*.kml

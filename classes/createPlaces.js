@@ -5,7 +5,6 @@ class createPlaces {
     constructor(takeout) {
         this.places = [];
         this.id = this.makeid(5);
-
         //check for places visited
         this.checkPlaces(takeout);
 
@@ -17,8 +16,8 @@ class createPlaces {
             if (element.placeVisit && 
                 element.placeVisit.duration.startTimestampMs  < Date.now() - 1209600 ){
 
-                var newPlaceLat = element.placeVisit.location.latitudeE7;
-                var newPlaceLong = element.placeVisit.location.longitudeE7;
+                var newPlaceLat = element.placeVisit.location.latitudeE7 / 10000000;
+                var newPlaceLong = element.placeVisit.location.longitudeE7 / 10000000;
                 var newPlaceTimeStart = element.placeVisit.duration.startTimestampMs;
                 var newPlaceTimeEnd = element.placeVisit.duration.endTimestampMs;
                 
