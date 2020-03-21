@@ -14,5 +14,9 @@
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
     "ol": "^6.2.1"
+  },
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "style-loader": "^1.1.3"
   }
 }
