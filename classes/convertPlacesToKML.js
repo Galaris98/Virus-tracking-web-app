@@ -37,7 +37,7 @@ class ConvertPlacesToKML {
         fs.writeFile('./public/KML/placesKML.kml', this.kmlString, 'UTF-8', (err) => {
             if (err) throw err;
         
-            console.log("The file was succesfully saved!");
+            console.log("The KML-comiled succesfully!");
         });
 
 

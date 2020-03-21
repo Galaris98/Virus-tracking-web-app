@@ -26,8 +26,9 @@ class ParseUploadedData {
                     fs.writeFile('./data/placesJSON.json', JSON.stringify([tempPlaces]), (err) => {
                         if (err) throw err;
                         console.log("The file was succesfully saved!");
+                        var converter = new ConvertPlacesToKML()
+
                     });
-                    var converter = new ConvertPlacesToKML()
                     return;
                 }
 
@@ -41,8 +42,8 @@ class ParseUploadedData {
                 fs.writeFile('./data/placesJSON.json', JSON.stringify(oldData), (err) => {
                     if (err) throw err;
                     console.log("The file was succesfully updated");
+                    var converter = new ConvertPlacesToKML()
                 });
-                var converter = new ConvertPlacesToKML()
 
             });
 
