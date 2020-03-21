@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*========================================= Headline =========================================*/
+
+h1{
+    text-align: center;
+    margin-top: 3vw;
+    font-size: 5vw;
+    font-family: "Agency FB";
+    letter-spacing: 0.3vw;
+    font-weight: bold;
+    color: #EAD26F;
+    text-shadow: 0 0 1vw rgba(234, 210, 111, 0.4);
+
+    z-index: 1;
+}
+
+/*========================================= Card =========================================*/
+
+.card{
+    margin-top: 3vw;
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 27vw;
+
+    box-shadow:20px 20px 10px rgba(20, 20, 20, 0.4);
+
+    z-index: 2;
+}
+
+.card > img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+}
+
+#jsonInput_Card{
+    margin-left: 2vw;
+    width: 90%;
+}
+
+#jsonInput_feedback{
+    margin-left: 1vw;
+}
+
+#radio{
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    margin-left: 2vw;
+}
+
+#button{
+    margin-left: 19.6vw;
+    font-size: 1.6vw;
+}
+
+
+
+/*========================================= Background =========================================*/
+
+#background_upload{
+    position: absolute;
+    width: 100%;
+    margin-top: -10vw;
+
+    z-index: -1;
+}
+#background_upload > img{
+    width: 100%;
+    height: 49.35vw;
+}

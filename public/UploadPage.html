@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Tracking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/UploadPage.css" type="text/css">
+</head>
+<body>
+
+    <h1>Upload des GPS Tracking</h1>
+    <div id="background_upload">
+        <img src="images/LandingPage.jpg" height="1077" width="1920"/>
+    </div>
+    <div class="card">
+        <img src="images/pinpoint.png">
+        <div class="card-body">
+            <form method="POST" action="/upload_takeout" class="was-validated">
+                <div class="custom-file" id="jsonInput_Card">
+                    <input type="file" class="custom-file-input" name="takeout" id="jsonInput" accept=".json" required>
+                    <label class="custom-file-label" for="jsonInput">Datei auswählen...</label>
+                    <div class="invalid-feedback" id="jsonInput_feedback">Lade deine Tracking Datei hoch.</div>
+                </div>
+                <div class="custom-control custom-radio" id="radio">
+                    <input type="radio" class="custom-control-input" id="checkBox" name="radio-stacked" required>
+                    <label class="custom-control-label" for="checkBox">Ich bin damit einverstanden, dass meine GPS Daten dem Gemeinwohl dienen.</label>
+                </div>
+                <div class="form-group, mx-auto" id="submit_button">
+                    <input class="btn btn-primary" id="button" type="submit" value="Hochladen">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        $('#jsonInput').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            var arr = fileName.split('\\');
+
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(arr[2]);
+        })
+    </script>
+
+</body>
+</html>
