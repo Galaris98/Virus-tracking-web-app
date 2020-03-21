@@ -32,8 +32,7 @@ class createPlaces {
             
         });
 
-        console.log(this.places.length);
-        console.log(this.id);
+        console.log('Created new entry with id: \"' + this.id + '\" and ' + this.places.length + ' entrys at ' + Date().toString())
 
     }
 

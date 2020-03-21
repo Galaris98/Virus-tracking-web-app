@@ -1,5 +1,7 @@
 const fs = require ('fs')
 const createPlaces = require('./createPlaces');
+const ConvertPlacesToKML = require('./convertPlacesToKML.js');
+
 
 class ParseUploadedData {
 
@@ -10,11 +12,19 @@ class ParseUploadedData {
                 console.log(err)
                 return
             } 
-            new createPlaces(JSON.parse(data));
+            var tempPlaces = [new createPlaces(JSON.parse(data))];
+            var converter = new ConvertPlacesToKML(tempPlaces)
+            
+            //After creating places Delete file
+            fs.unlink('./uploads/' + filename, err => {
+                if (err) {
+                    console.log(err)
+                }
+            })
         })
 
     }
-    
+
 }
 
 module.exports = ParseUploadedData
