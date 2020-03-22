@@ -2,7 +2,18 @@ import './L.KML.js'
 
 const apiurl1 = "https://api.opencagedata.com/geocode/v1/json?q="
 const apirul2 = "&key=92086730b6e54578a75d9188d26ddc0f&language=de&pretty=1&no_annotations=1"
-var mymap = L.map('mapid').setView([54.323292, 10.122765], 13);
+
+var startlat = 52.520008;
+var startlong = 13.404954;
+
+var mymap
+
+navigator.geolocation.getCurrentPosition(function(position) {
+    startlat = position.coords.latitude
+    startlong = position.coords.longitude
+});
+
+mymap = L.map('mapid').setView([startlat, startlong], 10);
 
 
 class Place{
@@ -41,13 +52,16 @@ var app = new Vue({
                         }
                     }
                     mymap.setView([this.lat[0],this.long[0]], 14 );
+                    var newMarker = new L.marker([this.lat[0],this.long[0]],{
+                    }).addTo(mymap);
+
                 });
             }
         },
         addPlace: function(index) {
             let place = new Place(this.vorschlaege[index],this.long[index],this.lat[index]);
             this.items.push(place);
-            console.log(this.items)
+            console.log(this.items);
         },
         savePlaces: function() {
             $.ajax({
@@ -64,6 +78,18 @@ var app = new Vue({
       }
 })
 
+var mouseMarker = {
+    lat: 0,
+    long:0
+}
+
+mymap.on('click', function(e) {
+        // go to click
+        mouseMarker.lat = e.latlng.lat
+        mouseMarker.long = e.latlng.lng
+        console.log(e)
+        mymap.setView([mouseMarker.lat,mouseMarker.long], 14 );
+    })
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2hyYXVzZW4iLCJhIjoiY2s4Mjc4NmcxMGQ2MjNscHR3aXRneWJuYSJ9.3iXyE1IalmBHqLZ8ZibX1w', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -82,10 +108,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
         const parser = new DOMParser();
         const kml = parser.parseFromString(kmltext, 'text/xml');
         const track = new L.KML(kml);
-
-        mymap.addLayer(track);
+        var markers = L.markerClusterGroup();
+        markers.addLayer(track)
+        mymap.addLayer(markers);
         // Adjust map to show the kml
 
     });
-
-
