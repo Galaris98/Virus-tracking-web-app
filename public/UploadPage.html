@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="../uploadHelpGalerie.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="css/UploadPage.css" type="text/css">
 </head>
@@ -15,6 +16,7 @@
     <div id="background_upload">
         <img src="images/LandingPage.jpg" height="1077" width="1920"/>
     </div>
+
     <div class="card">
         <img src="images/pinpoint.png">
         <div class="card-body">
@@ -35,6 +37,29 @@
         </div>
     </div>
 
+    <section id="helpSec">
+        <ul onclick="print()">
+            <li><img id="helpPic" src="images/frage_2.png"/></li>
+            <li><a id="helpText">Brauchst Du Hilfe beim Hochladen?</a></li>
+        </ul>
+    </section>
+
+    <section id="helpGalerie">
+        <div id="content">
+            <div id="seite"><p id="seitenzahl">4/11</p></div>
+            <div id="background"></div>
+            <img id="helpPicture" src="" height="500px" width="750"/>
+            <div id="helpPicturesDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam atque, commodi cupiditate fuga ipsum laboriosam necessitatibus nesciunt nihil odio perferendis perspiciatis rem saepe sint vel? Expedita facilis mollitia optio? Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at aut blanditiis consectetur cum cumque, dignissimos ducimus eum harum iusto minima, officiis placeat similique sint voluptas. Alias eaque iusto quas!</div>
+
+            <img class="skipper" id="next" onclick="next()" src="images/naechster_2.png"/>
+            <img class="skipper" id="previous" onclick="previous()" src="images/naechster_2.png"/>
+            <button class="btn btn-primary" id="button_back" onclick="reset()">Hochladen</button>
+        </div>
+    </section>
+
+    <form action="index.html">
+        <button class="btn btn-danger" id="button_backUpload" type="submit">Zurück</button>
+    </form>
 
     <script>
         $('#jsonInput').on('change',function(){
