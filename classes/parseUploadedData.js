@@ -5,15 +5,19 @@ const ConvertPlacesToKML = require('./convertPlacesToKML.js');
 
 class ParseUploadedData {
 
-    constructor(filename) {
+    constructor(filename,manuelleDaten) {
         
             fs.readFile('./uploads/' + filename,'utf8', (err, data) => {
             if (err) {
-                console.log(err)
-                return
-            } 
-            
-            var tempPlaces = new createPlaces(JSON.parse(data));
+                console.log('Nehme manuelle Daten...')
+                data = manuelleDaten
+            }
+            if(manuelleDaten){
+                var tempPlaces = new createPlaces(data,1);
+            }else{
+                var tempPlaces = new createPlaces(JSON.parse(data),0);
+
+            }
 
             //_----------------------------------------------------------
 
@@ -50,12 +54,10 @@ class ParseUploadedData {
 
             //_----------------------------------------------------------
 
-           
-            
             //After creating places Delete file
             fs.unlink('./uploads/' + filename, err => {
                 if (err) {
-                    console.log(err)
+                    //console.log(err)
                 }
             })
         })

@@ -2,11 +2,13 @@ const Place = require('./places.js');
 
 class createPlaces {
 
-    constructor(takeout) {
+    constructor(takeout,n) {
         this.places = [];
         this.id = this.makeid(5);
         //check for places visited
-        this.checkPlaces(takeout);
+        if (n==0) this.checkPlaces(takeout);
+        if (n==1) this.checkPlacesManual(takeout);
+
 
     }
 
@@ -36,7 +38,17 @@ class createPlaces {
     }
 
     checkPlacesManual(json) {
-        console.log(json)
+        JSON.parse(json.data).forEach(element =>{
+            console.log(element)
+
+            var newPlaceLat = element.lat
+            var newPlaceLong = element.long
+            var newPlaceTimeStart = 0 
+            var newPlaceTimeEnd = 0
+
+            var newPlace = new Place(newPlaceLat,newPlaceLong,newPlaceTimeStart,newPlaceTimeEnd,"");
+                this.places.push(newPlace)
+        })
     }
 
     // from Stackoverflow:

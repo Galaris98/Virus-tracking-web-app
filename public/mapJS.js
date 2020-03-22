@@ -5,6 +5,14 @@ const apirul2 = "&key=92086730b6e54578a75d9188d26ddc0f&language=de&pretty=1&no_a
 var mymap = L.map('mapid').setView([54.323292, 10.122765], 13);
 
 
+class Place{
+    constructor(name, long, lat){
+        this.name = name,
+        this.long = long,
+        this.lat = lat
+    }
+}
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -12,7 +20,7 @@ var app = new Vue({
       long: [],
       lat: [],
       suche: '',
-      items: []
+      items: new Array()
     },
     methods: {
         searchPlaces: function (event) {
@@ -37,17 +45,21 @@ var app = new Vue({
             }
         },
         addPlace: function(index) {
-            let place = {
-                name: this.vorschlaege[index],
-                long: this.long[index],
-                lat: this.lat[index]
-            }
+            let place = new Place(this.vorschlaege[index],this.long[index],this.lat[index]);
             this.items.push(place);
+            console.log(this.items)
         },
         savePlaces: function() {
-            $.post("/upload_standorte", JSON.stringify(this.items), function(result){
-            });
+            $.ajax({
+                url: "/upload_standorte",
+                type: "POST",
+                dataType: 'json',
+                data: {data: JSON.stringify(this.items)},
+                success: function(response){console.log('Data send!')}
+               });
+            console.log(this.items)
             this.items = []
+            location.reload();
         }
       }
 })
