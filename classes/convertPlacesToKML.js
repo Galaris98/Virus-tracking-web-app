@@ -1,5 +1,5 @@
 
-const Placemark = require('./Placemark.js');
+const Placemark = require('./placemark.js');
 const fs = require('fs');
 
 class ConvertPlacesToKML {

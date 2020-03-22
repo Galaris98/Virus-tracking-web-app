@@ -35,6 +35,10 @@ class createPlaces {
 
     }
 
+    checkPlacesManual(json) {
+        console.log(json)
+    }
+
     // from Stackoverflow:
     // https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
     makeid(length) {

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
+    <!-----------------------------Leaflet MAP IMPORT---------------------------------------->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
@@ -13,48 +15,34 @@
     crossorigin=""></script>
     <link rel="stylesheet" href="./css/map.css">
     <script src="./L.KML.js"></script>
-    
+    <script src="./mapJS.js" type="module"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/"></script>
+    <!-----------------------------Leaflet MAP IMPORT---------------------------------------->
+
+    <!-----------------------------VueJS---------------------------------------->
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-----------------------------Jquery---------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 </head>
 <body>
 
+    <div id="app">
+        <input v-on:keyup.enter="searchPlaces()" v-model="suche" type="text"></input>
+        <button v-on:click="searchPlaces()"> Suchen </button>
+        <p v-for="(vorschlag, index) in vorschlaege" v-on:click="addPlace(index)" :key="vorschlag"> {{vorschlag}}</p>
+        <p>Added Items:</p>
+        <p v-for="item in items">
+            {{item.name}}
+            {{item.long}} , {{item.lat}}
+        </p>
+        <button v-on:click="savePlaces">Standorte Abspeichern</button>
+    </div>
 
-
-    <div id="mapid"></div>
-
-    <script>
-
-
-
-        var mymap = L.map('mapid').setView([54.323292, 10.122765], 13);
-
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2hyYXVzZW4iLCJhIjoiY2s4Mjc4NmcxMGQ2MjNscHR3aXRneWJuYSJ9.3iXyE1IalmBHqLZ8ZibX1w', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: 'your.mapbox.access.token'
-        }).addTo(mymap);
-
-        // Load kml file
-        fetch('./KML/placesKML.kml')
-                .then(res => res.text())
-                .then(kmltext => {
-                    // Create new kml overlay
-                    const parser = new DOMParser();
-                    const kml = parser.parseFromString(kmltext, 'text/xml');
-                    const track = new L.KML(kml);
-                    
-                    mymap.addLayer(track);
-                    // Adjust map to show the kml
-
-
-                });
-    </script>
-
-  
+    <div id="mapid"></div> 
 
 </body>
 </html>
