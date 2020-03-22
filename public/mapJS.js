@@ -41,7 +41,7 @@ var app = new Vue({
                 name: this.vorschlaege[index],
                 long: this.long[index],
                 lat: this.lat[index]
-            }
+            };
             this.items.push(place);
         },
         savePlaces: function() {

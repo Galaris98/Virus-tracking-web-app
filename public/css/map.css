@@ -1,1 +1,95 @@
-#mapid { height: 800px; }
+
+/*========================================= Scrollbar =========================================*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/*========================================= Map =========================================*/
+#mapid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+
+    z-index: 0;
+}
+
+/*========================================= Input =========================================*/
+#app{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#search_card{
+    position: absolute;
+    top: 53%;
+    left: 11%;
+    transform: translate(-50%, -50%);
+    height: 85%;
+    width: 20%;
+    z-index: 2;
+}
+
+#listInput > li{
+    display: inline-block;
+}
+#listInput > li > button{
+    margin-bottom: 0.3vw;
+    margin-left: 0vw;
+}
+#listInput > li > input{
+    margin-left: -2.5vw;
+    width: 13vw;
+}
+#listInput > ul{
+    margin-left: -3vw;
+}
+#listInput > ul > li{
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+#listInput > ul > li:hover{
+    text-shadow: 0 0 1vw rgb(255, 255, 255);
+
+}
+#itemlist{
+    height: 23vw;
+    overflow: auto;
+}
+#button_saveItems{
+    position: absolute;
+    top: 93%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    margin-top: 1vw;
+}
+#button_backMap{
+    position: absolute;
+    top: 93%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    margin-top: 1vw;
+}

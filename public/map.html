@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>COVID-19 Map</title>
    
     <!-----------------------------Leaflet MAP IMPORT---------------------------------------->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -26,11 +26,14 @@
     <!-----------------------------Jquery---------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <!-----------------------------Bootstrap---------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 <body>
 
-    <div id="app">
+<!--    <div id="app">-->
         <input v-on:keyup.enter="searchPlaces()" v-model="suche" type="text"></input>
         <button v-on:click="searchPlaces()"> Suchen </button>
         <p v-for="(vorschlag, index) in vorschlaege" v-on:click="addPlace(index)" :key="vorschlag"> {{vorschlag}}</p>
@@ -39,10 +42,38 @@
             {{item.name}}
             {{item.long}} , {{item.lat}}
         </p>
-        <button v-on:click="savePlaces">Standorte Abspeichern</button>
-    </div>
+        <button v-on:click="savePlaces" class="btn btn-primary">Standorte Abspeichern</button>
+<!--    </div>-->
 
-    <div id="mapid"></div> 
+    <div id="mapid"></div>
+
+    <div class="card text-white bg-dark mb-3" id="search_card">
+        <div id="app">
+            <div class="card-header">
+                <ul id="listInput">
+                    <li><input v-on:keyup.enter="searchPlaces()" v-model="suche" type="text" class="form-control"></input></li>
+                    <li><button v-on:click="searchPlaces()" class="btn btn-primary"> Suchen </button></li>
+                    <ul>
+                        <li v-for="(vorschlag, index) in vorschlaege" v-on:click="addPlace(index)" :key="vorschlag"> {{vorschlag}}</li>
+<!--                        <div class="dropdown-divider"></div>-->
+                    </ul>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Added Items</h5>
+                <div id="itemlist">
+                    <p v-for="item in items">
+                    {{item.name}}
+                    {{item.long}} , {{item.lat}}
+                </p>
+                </div>
+                <button v-on:click="savePlaces" class="btn btn-primary" id="button_saveItems">Standorte Abspeichern</button>
+                <form action="index.html">
+                    <button type="submit" class="btn btn-danger" id="button_backMap">Zurück</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
