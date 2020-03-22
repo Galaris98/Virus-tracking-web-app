@@ -100,8 +100,8 @@ body{
     text-shadow: 0 0 1vw rgba(234, 210, 111, 0.8);
 }
 #Buttons:hover{
-    left: 58%;
-    width: 41%;
+    left: 56%;
+    width: 44%;
 }
 
 /*Untertitel zu den Buttons*/
@@ -115,7 +115,7 @@ body{
 }
 
 #infoTextUpload{
-    margin-left: -34vw;
+    margin-left: -37.5vw;
 }
 #infoTextInfo{
     margin-left: -23vw;
@@ -123,7 +123,6 @@ body{
 #infoTextWorld{
     margin-left: -17.6vw;
 }
-
 
 /*========================================= Footer =========================================*/
 

@@ -5,9 +5,14 @@
 body{
     background-color: rgb(0, 1, 22);
 }
+@font-face {
+    font-family: RobotoBlack;
+    src: url("../fonts/Roboto-Black.ttf");
+}
 
-body{
-    background-color: rgb(0, 1, 22);
+@font-face {
+    font-family: RobotoMedium;
+    src: url("../fonts/Roboto-Medium.ttf");
 }
 
 /*========================================= Headline =========================================*/
@@ -22,7 +27,7 @@ h1{
     font-weight: bold;
     font-size: 4vw;
     color: #EAD26F;
-    text-shadow: 0 0 1vw rgba(234, 210, 111, 0.4);
+    text-shadow: 0 0 1vw rgba(234, 210, 111, 0.8);
 
     z-index: 1;
 }
@@ -36,7 +41,7 @@ h1{
     width: 50%;
     height: 27vw;
 
-    background-color: #b3d3f9;
+    background-color: rgba(20, 20, 20, 0.6);
     box-shadow:20px 20px 10px rgba(20, 20, 20, 0.4);
 
     z-index: 2;
@@ -71,15 +76,135 @@ h1{
     font-size: 1.6vw;
 }
 
+/*========================================= Help Button =========================================*/
+
+#helpSec{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 13;
+}
+#helpSec > ul > li{
+    display: inline-block;
+    cursor: pointer;
+}
+#helpPic{
+    height: 30px;
+    margin-bottom: 0.7vw;
+    margin-right: 1.5vw;
+    transition: ease 0.5s;
+}
+#helpText{
+    color: #ead26f;
+    font-family: RobotoBlack;
+    font-size: 1.5vw;
+    transition: ease 0.5s;
+}
+#helpSec > ul:hover #helpText{
+    text-shadow: 0 0 1vw rgba(234, 210, 111, 0.8);
+}
+#helpSec > ul:hover #helpPic{
+    -webkit-filter: drop-shadow(0px 0px 5px #ead26f);
+    filter: drop-shadow(0px 0px 5px #ead26f);
+}
+
+
+
+/*========================================= Gallery =========================================*/
+
+#helpGalerie{
+    position: absolute;
+    width: 100%;
+    height: 98%;
+    background-color: rgba(50, 50, 50, 0.8);
+    z-index: -2;
+}
+
+#helpGalerie > div{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#helpPicture{
+    border-radius: 5px 30px 5px 30px;
+}
+#helpGalerie > div > div{
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55vw;
+    font-family: RobotoMedium;
+    background-color: rgba(200, 200, 200, 0.8);
+    padding: 2vw;
+    border-radius: 5px 30px 5px 30px;
+}
+
+/*Buttons zum nächsten und vorherigem Bild*/
+.skipper{
+    height: 5vw;
+    -webkit-filter: drop-shadow(0px 0px 3px #ead26f);
+    filter: drop-shadow(0px 0px 3px #ead26f);
+    transition: ease 0.3s;
+    cursor: pointer;
+}
+#next{
+    position: absolute;
+    top: 70%;
+    left: 150%;
+    transform: translate(-50%, -50%);
+}
+#previous{
+    position: absolute;
+    top: 70%;
+    left: -50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+.skipper:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px #ead26f);
+    filter: drop-shadow(0px 0px 5px #ead26f);
+}
+#seite > p{
+    position: absolute;
+    top: 220%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: RobotoMedium;
+    font-size: 2vw;
+    color: #ead26f;
+}
+#button_back{
+    position: absolute;
+    top: 120%;
+    left: 125%;
+    transform: translate(-50%, -50%);
+    height: 5vw;
+    width: auto;
+}
+
 /*========================================= Background =========================================*/
 
 #background_upload{
     width: 100%;
-    z-index: -1;
+    z-index: 0;
 }
 #background_upload > img{
     position: absolute;
     margin-top: 0;
     width: 100%;
     height: 48.5vw;
+}
+
+/*========================================= Back Button =========================================*/
+
+#button_backUpload{
+
+    position: absolute;
+    top: 89%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: #a8000e;
 }
